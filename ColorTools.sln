@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorTools", "src\ColorTools\ColorTools.csproj", "{14EFE025-C69A-420E-B4A4-D97075F08FEB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14EFE025-C69A-420E-B4A4-D97075F08FEB}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{14EFE025-C69A-420E-B4A4-D97075F08FEB}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{14EFE025-C69A-420E-B4A4-D97075F08FEB}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{14EFE025-C69A-420E-B4A4-D97075F08FEB}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
