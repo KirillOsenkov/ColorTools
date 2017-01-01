@@ -25,6 +25,7 @@ class Program
             var panel = new StackPanel() { Orientation = Orientation.Horizontal };
             panel.Children.Add(new TextBlock() { Text = prop.Name, Width = 200 });
             panel.Children.Add(rect);
+            panel.Children.Add(new TextBlock() { Text = brush.Color.ToString(), Margin = new Thickness(8, 0, 8, 0) });
             content.Items.Add(panel);
         }
 
