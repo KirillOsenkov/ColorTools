@@ -170,7 +170,7 @@
 
         var scene = new THREE.Scene();
         var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 4000);
-        camera.position.z = 1750;
+        camera.position.z = 2000;
 
         var particleCount = data.length / 3;
         var radius = 800;
@@ -221,15 +221,27 @@
         group.add(pointCloud);
 
         var renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setClearColor(0x606060);
+        renderer.setClearColor(0x707070);
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
         var render = function () {
             requestAnimationFrame(render);
+            var rotationRate = 0.005;
+            group.rotation.x += rotationRate;
+            group.rotation.y += rotationRate;
             renderer.render(scene, camera);
         }
+
+        window.addEventListener('resize', onWindowResize, false);
+
         render();
     </script>
 </body>
