@@ -21,7 +21,19 @@ class Program
 
         var sb = new StringBuilder();
 
-        foreach (var prop in typeof(SystemColors).GetProperties().Where(p => p.PropertyType == typeof(SolidColorBrush)))
+        var brushProperties = typeof(SystemColors)
+            .GetProperties()
+            .Where(p => p.PropertyType == typeof(SolidColorBrush))
+            .OrderBy(p => p.Name)
+            .ToArray();
+
+        var colorProperties = typeof(Colors)
+            .GetProperties()
+            .Where(p => p.PropertyType == typeof(Color))
+            .OrderBy(p => p.Name)
+            .ToArray();
+
+        foreach (var prop in brushProperties)
         {
             var brush = prop.GetValue(null) as SolidColorBrush;
             var rect = new Rectangle() { Width = 100, Height = 20, Fill = brush };
@@ -32,14 +44,14 @@ class Program
             content.Items.Add(panel);
         }
 
-        foreach (var prop in typeof(Colors).GetProperties().Where(p => p.PropertyType == typeof(Color)))
+        foreach (var prop in colorProperties)
         {
             var color = (Color)prop.GetValue(null);
-            sb.AppendLine($"{color.R / 255.0}, {color.G / 255.0}, {color.B / 255.0},");
+            sb.AppendLine($"{color.R / 255.0:X2}, {color.G / 255.0:X2}, {color.B / 255.0:X2},");
             //sb.AppendLine($"{color.ScR}, {color.ScG}, {color.ScB},");
         }
 
-        // Clipboard.SetText(sb.ToString());
+        Clipboard.SetText(sb.ToString());
 
         window.Content = content;
 
